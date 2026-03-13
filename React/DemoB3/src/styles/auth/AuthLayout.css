@@ -1,0 +1,232 @@
+.auth-layout {
+  min-height: 100vh;
+  width: 100%;
+  position: relative;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family:
+    -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu,
+    sans-serif;
+}
+
+/* Анимированный фон с геометрическими фигурами */
+.auth-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  overflow: hidden;
+}
+
+.auth-shape {
+  position: absolute;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 50%;
+}
+
+.auth-shape-1 {
+  width: 300px;
+  height: 300px;
+  top: -100px;
+  right: -100px;
+  background: linear-gradient(
+    45deg,
+    rgba(255, 255, 255, 0.2),
+    rgba(255, 255, 255, 0.1)
+  );
+  animation: float 8s ease-in-out infinite;
+}
+
+.auth-shape-2 {
+  width: 200px;
+  height: 200px;
+  bottom: -50px;
+  left: -50px;
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.15),
+    rgba(255, 255, 255, 0.05)
+  );
+  animation: float 6s ease-in-out infinite reverse;
+}
+
+.auth-shape-3 {
+  width: 150px;
+  height: 150px;
+  top: 50%;
+  left: 20%;
+  background: rgba(255, 255, 255, 0.08);
+  animation: float 10s ease-in-out infinite;
+}
+
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-20px) rotate(5deg);
+  }
+}
+
+/* Контейнер для формы */
+.auth-container {
+  position: relative;
+  z-index: 10;
+  width: 100%;
+  max-width: 450px;
+  margin: 20px;
+  animation: slideUp 0.5s ease-out;
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Карточка с формой */
+.auth-card {
+  background: white;
+  border-radius: 24px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+  overflow: hidden;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+/* Заголовок карточки */
+.auth-header {
+  background: linear-gradient(135deg, #f5f7ff 0%, #ffffff 100%);
+  padding: 40px 40px 20px;
+  text-align: center;
+  border-bottom: 1px solid #eef2f6;
+}
+
+.auth-title {
+  margin: 0;
+  font-size: 28px;
+  font-weight: 600;
+  color: #1a2639;
+  letter-spacing: -0.5px;
+}
+
+.auth-subtitle {
+  margin: 8px 0 0;
+  color: #5a6a7e;
+  font-size: 15px;
+  line-height: 1.5;
+}
+
+/* Контент с формой */
+.auth-content {
+  padding: 30px 40px;
+  background: white;
+}
+
+/* Футер карточки */
+.auth-footer {
+  padding: 20px 40px;
+  background: #f8fafd;
+  text-align: center;
+  border-top: 1px solid #eef2f6;
+}
+
+.auth-footer p {
+  margin: 0;
+  color: #7c8ba0;
+  font-size: 13px;
+}
+
+/* Стили для форм (будут применяться к LoginForm и RegisterForm) */
+.auth-content :global(form) {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.auth-content :global(.form-group) {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.auth-content :global(label) {
+  font-size: 14px;
+  font-weight: 500;
+  color: #2d3a4f;
+}
+
+.auth-content :global(input) {
+  padding: 12px 16px;
+  border: 2px solid #e1e8f0;
+  border-radius: 12px;
+  font-size: 15px;
+  transition: all 0.3s ease;
+  background: white;
+}
+
+.auth-content :global(input:focus) {
+  outline: none;
+  border-color: #667eea;
+  box-shadow: 0 0 0 4px rgba(102, 126, 234, 0.1);
+}
+
+.auth-content :global(input::placeholder) {
+  color: #a0b3cc;
+}
+
+.auth-content :global(button[type="submit"]) {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  border: none;
+  padding: 14px;
+  border-radius: 12px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin-top: 10px;
+}
+
+.auth-content :global(button[type="submit"]:hover) {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 25px rgba(102, 126, 234, 0.4);
+}
+
+.auth-content :global(button[type="submit"]:disabled) {
+  opacity: 0.6;
+  cursor: not-allowed;
+  transform: none;
+}
+
+/* Адаптивность */
+@media (max-width: 480px) {
+  .auth-container {
+    margin: 10px;
+  }
+
+  .auth-header {
+    padding: 30px 20px;
+  }
+
+  .auth-content {
+    padding: 20px;
+  }
+
+  .auth-footer {
+    padding: 15px 20px;
+  }
+
+  .auth-title {
+    font-size: 24px;
+  }
+}
